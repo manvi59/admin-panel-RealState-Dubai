@@ -1,6 +1,6 @@
 "use client";
 import { useState } from "react";
-import "bootstrap/dist/css/bootstrap.min.css";
+import Sidebar from "../../components/ui/sidebar";
 
 export default function SiteSettingsPage() {
   const [formData, setFormData] = useState({
@@ -45,200 +45,208 @@ export default function SiteSettingsPage() {
   };
 
   return (
-    <div className="container py-5">
-      <div className="text-center mb-5">
-        <h2 className="fw-bold text-success">⚙️ Site Settings</h2>
-        <p className="text-muted">Manage branding, homepage, and featured sections</p>
-      </div>
+    <div className="flex min-h-screen bg-gray-50">
+      <Sidebar />
 
-      <form onSubmit={handleSubmit} className="settings-form">
-        {/* Branding */}
-        <div className="card shadow-sm mb-4 border-0">
-          <div className="card-header bg-success text-white fw-semibold">
-            🏷️ Branding
-          </div>
-          <div className="card-body">
-            <div className="row g-3">
-              <div className="col-md-6">
-                <label className="form-label">Site Name</label>
+      <div className="flex-1 p-8">
+        {/* Header */}
+        <div className="text-center mb-10">
+          <h2 className="text-3xl font-bold text-green-700">⚙️ Site Settings</h2>
+          <p className="text-gray-600 mt-1">
+            Manage branding, homepage, and featured sections
+          </p>
+        </div>
+
+        <form
+          onSubmit={handleSubmit}
+          className="space-y-8 max-w-5xl mx-auto"
+        >
+          {/* Branding */}
+          <div className="bg-white rounded-2xl shadow-md">
+            <div className="bg-green-700 text-white px-6 py-3 rounded-t-2xl font-semibold">
+              🏷️ Branding
+            </div>
+            <div className="p-6 grid md:grid-cols-2 gap-6">
+              <div>
+                <label className="block text-sm font-medium mb-2 text-gray-800">Site Name</label>
                 <input
                   type="text"
                   name="siteName"
                   value={formData.siteName}
                   onChange={handleChange}
-                  className="form-control"
                   placeholder="Enter website name"
+                  className="w-full border rounded-lg px-3 py-2 focus:ring-2 focus:ring-green-500 outline-none"
                 />
               </div>
-              <div className="col-md-6">
-                <label className="form-label">Tagline</label>
+              <div>
+                <label className="block text-sm font-medium mb-2 text-gray-800">Tagline</label>
                 <input
                   type="text"
                   name="tagline"
                   value={formData.tagline}
                   onChange={handleChange}
-                  className="form-control"
                   placeholder="Enter tagline"
+                  className="w-full border rounded-lg px-3 py-2 focus:ring-2 focus:ring-green-500 outline-none"
                 />
               </div>
-              <div className="col-md-6">
-                <label className="form-label">Footer Text</label>
+              <div>
+                <label className="block text-sm font-medium mb-2 text-gray-800">Footer Text</label>
                 <input
                   type="text"
                   name="footerText"
                   value={formData.footerText}
                   onChange={handleChange}
-                  className="form-control"
                   placeholder="Enter footer text"
+                  className="w-full border rounded-lg px-3 py-2 focus:ring-2 focus:ring-green-500 outline-none"
                 />
               </div>
-              <div className="col-md-6">
-                <label className="form-label">Logo Upload</label>
+              <div>
+                <label className="block text-sm font-medium mb-2 text-gray-800">Logo Upload</label>
                 <input
                   type="file"
                   accept="image/*"
-                  className="form-control"
                   onChange={(e) => handleFileChange(e, "logo")}
+                  className="w-full border rounded-lg px-3 py-2 file:mr-3 file:py-2 file:px-3 file:border-0 file:rounded-md file:bg-green-600 file:text-white hover:file:bg-green-700"
                 />
                 {logoPreview && (
                   <img
                     src={logoPreview}
                     alt="Logo Preview"
-                    className="mt-3 rounded shadow-sm"
-                    style={{ height: "60px" }}
+                    className="mt-3 h-14 rounded-lg shadow-md object-contain"
                   />
                 )}
               </div>
             </div>
           </div>
-        </div>
 
-        {/* Home Banner */}
-        <div className="card shadow-sm mb-4 border-0">
-          <div className="card-header bg-success text-white fw-semibold">
-            🏞️ Home Banner
-          </div>
-          <div className="card-body">
-            <div className="row g-3">
-              <div className="col-md-6">
-                <label className="form-label">Banner Title</label>
+          {/* Home Banner */}
+          <div className="bg-white rounded-2xl shadow-md">
+            <div className="bg-green-700 text-white px-6 py-3 rounded-t-2xl font-semibold">
+              🏞️ Home Banner
+            </div>
+            <div className="p-6 grid md:grid-cols-2 gap-6">
+              <div>
+                <label className="block text-sm font-medium mb-2 text-gray-800">Banner Title</label>
                 <input
                   type="text"
                   name="bannerTitle"
                   value={formData.bannerTitle}
                   onChange={handleChange}
-                  className="form-control"
                   placeholder="Enter banner title"
+                  className="w-full border rounded-lg px-3 py-2 focus:ring-2 focus:ring-green-500 outline-none"
                 />
               </div>
-              <div className="col-md-6">
-                <label className="form-label">Banner Subtitle</label>
+              <div>
+                <label className="block text-sm font-medium mb-2 text-gray-800">Banner Subtitle</label>
                 <input
                   type="text"
                   name="bannerSubtitle"
                   value={formData.bannerSubtitle}
                   onChange={handleChange}
-                  className="form-control"
                   placeholder="Enter subtitle"
+                  className="w-full border rounded-lg px-3 py-2 focus:ring-2 focus:ring-green-500 outline-none"
                 />
               </div>
-              <div className="col-md-6">
-                <label className="form-label">Button Text</label>
+              <div>
+                <label className="block text-sm font-medium mb-2 text-gray-800">Button Text</label>
                 <input
                   type="text"
                   name="bannerButtonText"
                   value={formData.bannerButtonText}
                   onChange={handleChange}
-                  className="form-control"
                   placeholder="e.g. Explore Now"
+                  className="w-full border rounded-lg px-3 py-2 focus:ring-2 focus:ring-green-500 outline-none"
                 />
               </div>
-              <div className="col-md-6">
-                <label className="form-label">Button Link</label>
+              <div>
+                <label className="block text-sm font-medium mb-2 text-gray-800">Button Link</label>
                 <input
                   type="url"
                   name="bannerButtonLink"
                   value={formData.bannerButtonLink}
                   onChange={handleChange}
-                  className="form-control"
                   placeholder="https://example.com"
+                  className="w-full border rounded-lg px-3 py-2 focus:ring-2 focus:ring-green-500 outline-none"
                 />
               </div>
-              <div className="col-md-6">
-                <label className="form-label">Banner Image</label>
+              <div className="md:col-span-2">
+                <label className="block text-sm font-medium mb-2 text-gray-800">Banner Image</label>
                 <input
                   type="file"
                   accept="image/*"
-                  className="form-control"
                   onChange={(e) => handleFileChange(e, "banner")}
+                  className="w-full border rounded-lg px-3 py-2 file:mr-3 file:py-2 file:px-3 file:border-0 file:rounded-md file:bg-green-600 file:text-white hover:file:bg-green-700"
                 />
                 {bannerPreview && (
                   <img
                     src={bannerPreview}
                     alt="Banner Preview"
-                    className="mt-3 rounded shadow-sm w-100"
-                    style={{ height: "150px", objectFit: "cover" }}
+                    className="mt-3 rounded-lg shadow-md w-full h-48 object-cover"
                   />
                 )}
               </div>
             </div>
           </div>
-        </div>
 
-        {/* Categories */}
-        <div className="card shadow-sm mb-4 border-0">
-          <div className="card-header bg-success text-white fw-semibold">
-            🗂️ Categories
-          </div>
-          <div className="card-body">
-            <div className="row g-3">
+          {/* Categories */}
+          <div className="bg-white rounded-2xl shadow-md">
+            <div className="bg-green-700 text-white px-6 py-3 rounded-t-2xl font-semibold">
+              🗂️ Categories
+            </div>
+            <div className="p-6 grid md:grid-cols-3 gap-6">
               {["category1", "category2", "category3"].map((cat, i) => (
-                <div className="col-md-4" key={cat}>
-                  <label className="form-label">Category {i + 1}</label>
+                <div key={cat}>
+                  <label className="block text-sm font-medium mb-2 text-gray-800">
+                    Category {i + 1}
+                  </label>
                   <input
                     type="text"
                     name={cat}
                     value={formData[cat]}
                     onChange={handleChange}
-                    className="form-control"
                     placeholder={`Enter category ${i + 1}`}
+                    className="w-full border rounded-lg px-3 py-2 focus:ring-2 focus:ring-green-500 outline-none"
                   />
                 </div>
               ))}
             </div>
           </div>
-        </div>
 
-        {/* Featured Locations */}
-        <div className="card shadow-sm mb-4 border-0">
-          <div className="card-header bg-success text-white fw-semibold">
-            📍 Featured Locations
-          </div>
-          <div className="card-body">
-            <div className="row g-3">
+          {/* Featured Locations */}
+          <div className="bg-white rounded-2xl shadow-md">
+            <div className="bg-green-700 text-white px-6 py-3 rounded-t-2xl font-semibold">
+              📍 Featured Locations
+            </div>
+            <div className="p-6 grid md:grid-cols-3 gap-6">
               {["location1", "location2", "location3"].map((loc, i) => (
-                <div className="col-md-4" key={loc}>
-                  <label className="form-label">Location {i + 1}</label>
+                <div key={loc}>
+                  <label className="block text-sm font-medium mb-2 text-gray-800">
+                    Location {i + 1}
+                  </label>
                   <input
                     type="text"
                     name={loc}
                     value={formData[loc]}
                     onChange={handleChange}
-                    className="form-control"
                     placeholder={`Enter location ${i + 1}`}
+                    className="w-full border rounded-lg px-3 py-2 focus:ring-2 focus:ring-green-500 outline-none"
                   />
                 </div>
               ))}
             </div>
           </div>
-        </div>
 
-        <div className="text-center">
-          <button type="submit" className="btn btn-success px-5 py-2 shadow">
-            💾 Save All Settings
-          </button>
-        </div>
-      </form>
+          {/* Save Button */}
+          <div className="text-center">
+            <button
+              type="submit"
+              className="bg-green-700 hover:bg-green-800 text-white px-8 py-3 rounded-xl shadow-md font-semibold transition-all"
+            >
+              💾 Save All Settings
+            </button>
+          </div>
+        </form>
+      </div>
     </div>
   );
 }
