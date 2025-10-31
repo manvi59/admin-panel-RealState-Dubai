@@ -59,7 +59,7 @@ export default function TestimonialManagement() {
               <tbody>
                 {testimonials.map((t) => (
                   <tr key={t.id} className="border-t hover:bg-gray-50">
-                    <td className="p-3 flex items-center gap-3">
+                    <td className="p-3 flex items-center gap-3" style={{width:"200px"}}>
                      <img
                         src={t.image}
                         alt={t.name}

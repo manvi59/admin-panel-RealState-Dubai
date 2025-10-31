@@ -83,11 +83,14 @@ export default function ContactManagement() {
                     <td className="p-3 text-gray-600">{c.email}</td>
                     <td className="p-3 text-gray-600">{c.phone}</td>
                     <td className="p-3 text-gray-700 font-semibold">{c.subject}</td>
-                    <td className="p-3 text-gray-600 max-w-xl truncate" title={c.message}>
+                    <td className="p-3 text-gray-600   flex flex-wrap" title={c.message}
+                    style={{width:"200px"}}
+                    >
                       {c.message}
+                      
                     </td>
                     <td className="p-3 text-gray-500">{c.received}</td>
-                    <td className="p-3 text-center">
+                    <td className="p-3 text-center   ">
                       <button
                         onClick={() => setSelected(c)}
                         className="inline-flex items-center gap-2 text-indigo-600 hover:text-indigo-800 mr-3"

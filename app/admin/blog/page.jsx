@@ -91,10 +91,11 @@ export default function BlogManagement() {
                     <td className="p-3 font-medium text-gray-800">{blog.title}</td>
                     <td className="p-3 text-gray-600">{blog.author}</td>
                     <td className="p-3 text-gray-600 flex items-center gap-1">
-                      <Calendar size={14} /> {blog.date}
+                      {/* <Calendar size={14} /> */}
+                       {blog.date}
                     </td>
                     <td className="p-3 text-gray-600">{blog.excerpt}</td>
-                    <td className="p-3 text-center">
+                    <td className="p-3 text-center flex align-center">
                        <Link href={`/admin/blog/edit`} className="text-green-600 hover:text-green-800 mr-3">
                           <Edit2 size={18} />
                         </Link>

@@ -3,11 +3,6 @@ import { useState, useEffect } from "react";
 import { useRouter } from "next/navigation";
 import dynamic from "next/dynamic";
 
-// ✅ Dynamically import CKEditor and ClassicEditor safely
-const CKEditor = dynamic(() => import("@ckeditor/ckeditor5-react").then(mod => mod.CKEditor), {
-  ssr: false,
-});
-let ClassicEditor; // We'll import this inside useEffect (client-side only)
 
 export default function EditBlog() {
   const router = useRouter();
@@ -21,12 +16,7 @@ export default function EditBlog() {
   });
 
   // ✅ Import editor only on client
-  useEffect(() => {
-    import("@ckeditor/ckeditor5-build-classic").then((mod) => {
-      ClassicEditor = mod.default;
-      setEditorLoaded(true);
-    });
-  }, []);
+
 
   const handleChange = (e) => {
     const { id, value } = e.target;
@@ -42,7 +32,7 @@ export default function EditBlog() {
 
   return (
     <div className="min-h-screen bg-gray-100 flex items-center justify-center px-4 min-w-full">
-      <div className="w-full max-w-2xl bg-white rounded-xl shadow-lg overflow-hidden">
+      <div className="w-full bg-white rounded-xl shadow-lg overflow-hidden " style={{margin:"50px"}}>
         <div className="bg-green-700 text-white text-center py-4">
           <h3 className="text-2xl font-semibold">Edit Blog</h3>
         </div>
@@ -97,29 +87,7 @@ export default function EditBlog() {
               </label>
 
               {/* {editorLoaded ? ( */}
-                <CKEditor
-                  editor={ClassicEditor}
-                  data={formData.excerpt}
-                  onChange={(event, editor) => {
-                    const data = editor.getData();
-                    setFormData((prev) => ({ ...prev, excerpt: data }));
-                  }}
-                  config={{
-                    toolbar: [
-                      "heading",
-                      "|",
-                      "bold",
-                      "italic",
-                      "link",
-                      "bulletedList",
-                      "numberedList",
-                      "blockQuote",
-                      "undo",
-                      "redo",
-                      "insertTable",
-                    ],
-                  }}
-                />
+                 
                {/* : (
                 <p className="text-gray-400 italic">Loading editor...</p>
               ) */}
