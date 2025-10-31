@@ -32,7 +32,7 @@ export default function EditBlog() {
 
   return (
     <div className="min-h-screen bg-gray-100 flex items-center justify-center px-4 min-w-full">
-      <div className="w-full max-w-2xl bg-white rounded-xl shadow-lg overflow-hidden">
+      <div className="w-full bg-white rounded-xl shadow-lg overflow-hidden " style={{margin:"50px"}}>
         <div className="bg-green-700 text-white text-center py-4">
           <h3 className="text-2xl font-semibold">Edit Blog</h3>
         </div>
