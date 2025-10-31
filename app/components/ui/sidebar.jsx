@@ -48,7 +48,7 @@ export default function Sidebar() {
         <Link href="/admin/vendors" className="flex items-center gap-2 p-2 rounded hover:bg-green-50">
           <Users size={18} /> Vendors
         </Link>
-        <Link href="/admin/vendors" className="flex items-center gap-2 p-2 rounded hover:bg-green-50">
+        <Link href="/admin/user" className="flex items-center gap-2 p-2 rounded hover:bg-green-50">
           <Users size={18} /> Users
         </Link>
         <Link href="/admin/vendors" className="flex items-center gap-2 p-2 rounded hover:bg-green-50">
