@@ -6,7 +6,7 @@ import Button from "../../components/ui/button";
 const properties = [
   { id: 1, title: "Luxury 2BHK Downtown Dubai", status: "Pending" },
   { id: 2, title: "Marina Waterfront Villa", status: "Approved" },
-];
+];                   
 
 export default function AdminProperties() {
   return (
