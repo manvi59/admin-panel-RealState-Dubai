@@ -207,7 +207,13 @@ export default function Sidebar() {
           <Link href="/admin/contact" className="flex items-center gap-2 p-2 rounded hover:bg-green-50">
             <Users size={18} /> Contact Requests
           </Link>
-          <Link href="/admin/transactions" className="flex items-center gap-2 p-2 rounded hover:bg-green-50">
+          <Link href="/admin/analytics" className="flex items-center gap-2 p-2 rounded hover:bg-green-50">
+            <Users size={18} /> Vendor Analytics
+          </Link>
+          <Link href="/admin/site-setting" className="flex items-center gap-2 p-2 rounded hover:bg-green-50">
+            <Users size={18} /> Site Settings
+          </Link>
+          <Link href="/admin/transaction" className="flex items-center gap-2 p-2 rounded hover:bg-green-50">
             <Users size={18} /> Transactions & Refunds
           </Link>
           <Link href="/admin/revenue" className="flex items-center gap-2 p-2 rounded hover:bg-green-50">

@@ -59,7 +59,7 @@ export default function SiteSettingsPage() {
 
         <form
           onSubmit={handleSubmit}
-          className="space-y-8 max-w-5xl mx-auto"
+          className="space-y-8 max-w-8xl mx-auto"
         >
           {/* Branding */}
           <div className="bg-white rounded-2xl shadow-md">

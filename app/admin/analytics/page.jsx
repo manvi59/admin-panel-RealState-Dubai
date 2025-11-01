@@ -60,7 +60,7 @@ export default function AnalyticsPage() {
         <h1 className="text-3xl font-bold mb-8">Analytics / Insights</h1>
 
         {/* Overview Cards */}
-        <div className="grid grid-cols-1 sm:grid-cols-2 md:grid-cols-3 xl:grid-cols-5 gap-6 mb-10">
+        <div className="grid grid-cols-3 sm:grid-cols-2 md:grid-cols-3 xl:grid-cols-3 gap-6 mb-10">
           {overview.map((item, i) => (
             <Card key={i} className="shadow-lg rounded-2xl border-0 bg-white hover:shadow-2xl transition">
               <CardHeader className="flex items-center gap-4 p-5">
