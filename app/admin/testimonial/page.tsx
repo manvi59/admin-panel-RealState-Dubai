@@ -33,9 +33,12 @@ export default function TestimonialManagement() {
         {/* Header Section */}
         <div className="flex justify-between items-center mb-6">
           <h1 className="text-3xl font-bold">Testimonial Management</h1>
+         <Link href="/admin/testimonial/add">
           <button className="bg-green-700 hover:bg-green-800 text-white px-4 py-2 rounded-lg flex items-center gap-2">
             <Plus size={18} /> Add Testimonial
           </button>
+        </Link>
+
         </div>
 
         {/* Testimonial Table */}
