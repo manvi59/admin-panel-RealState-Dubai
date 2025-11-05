@@ -13,6 +13,7 @@ import { Trash } from 'lucide-react';
 import toggle from "../../components/ui/toggle"
 import toggleLayout from "../../components/ui/toggle";
 import { Home, Users, Box, Settings, LogOut, X } from "lucide-react";
+import { useRouter } from "next/navigation";
 
 const page = () => {
   const [users, setUsers] = useState([
@@ -24,7 +25,10 @@ const page = () => {
    
 
   // Filter state
+    const router = useRouter();
   const [filter, setFilter] = useState("default");
+
+
 
   //Function to organize data based on selected filter
   const getFilteredUsers = () => {
@@ -56,7 +60,16 @@ const page = () => {
 
         {/* Main content */}
         <main className="flex-1 p-8 overflow-x-auto">
-          <h1 className="text-2xl font-bold mb-6 text-gray-800">User Management</h1>
+         <div className="flex justify-between items-center mb-6">
+          <h1 className="text-2xl font-bold text-gray-800">User Management</h1>
+          <button
+            onClick={() => router.push("/admin/user/add")}
+            className="bg-green-700 hover:bg-green-800 text-white px-4 py-2 rounded-lg flex items-center gap-2 shadow-md transition-all"
+          >
+            <UserRoundPlus size={18} /> Add User
+          </button>
+        </div>
+
 
           {/* filter dropdown */}
           <div className="flex items-center gap-3 mb-6">
@@ -93,8 +106,12 @@ const page = () => {
                     <td className={`py-3 px-4 font-semibold ${user.status === "active" ? "text-green-600" : "text-red-500"}`}>{user.status}</td>
                     <td className="py-3 px-4">{user.lastlogin}</td>
                    <td className="flex justify-center items-center gap-3 mt-4"> 
-                    <UserRoundPlus />
-                    <UserRoundPen />
+                    {/* <UserRoundPlus /> */}
+                   <UserRoundPen
+                    onClick={() => router.push(`/admin/user/edit/${index}`)}
+                    className=" hover:text-blue-800 cursor-pointer transition"
+                  />
+
                     <Trash />
                     </td>
                   </tr>
