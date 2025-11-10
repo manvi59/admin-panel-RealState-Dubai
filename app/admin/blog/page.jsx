@@ -41,7 +41,7 @@ export default function BlogManagement() {
         {/* Header Section */}
         <div className="flex justify-between items-center mb-6">
           <h1 className="text-3xl font-bold">Blog Management</h1>
-          <button className="bg-green-700 hover:bg-blue-700 text-white px-4 py-2 rounded-lg flex items-center gap-2">
+          {/* <button className="bg-green-700 hover:bg-blue-700 text-white px-4 py-2 rounded-lg flex items-center gap-2"> */}
            <Link
             href="/admin/blog/add"
             className="bg-green-700 hover:bg-green-800 text-white px-4 py-2 rounded-lg flex items-center gap-2"
@@ -49,7 +49,7 @@ export default function BlogManagement() {
             <Plus size={18} /> Add Blog
           </Link>
 
-          </button>
+          {/* </button> */}
         </div>
 
         {/* Sort Dropdown */}
